@@ -3,7 +3,8 @@ extends Node2D
 onready var file = 'res://Questions.csv'
 var question_list = []
 var answer
-onready var default_stylebox = $Antwort1.get_stylebox("normal")
+var timer
+var previous_highlighted_answer = -1
 
 var state = State.Title
 
@@ -17,11 +18,13 @@ enum State {
 func _ready():
 	randomize()
 	load_questions()
+	$Timer.connect("timeout", self, "_on_timer")
+	$Question.hide()
 
 func new_round():
-	$Antwort1.add_stylebox_override("normal", default_stylebox)
-	$Antwort2.add_stylebox_override("normal", default_stylebox)
-	$Antwort3.add_stylebox_override("normal", default_stylebox)
+	$Antwort1.highlight = false
+	$Antwort2.highlight = false
+	$Antwort3.highlight = false
 	var question_data = rand_question()
 	var q_text = question_data[0]
 	$Question.text = q_text
@@ -30,7 +33,7 @@ func new_round():
 	$Antwort3.text = question_data[3]
 	answer = question_data[4]
 	print(question_data[0])
-	$DMXControl.call_questions()
+	$Timer.start()
 
 func load_questions():
 	var f = File.new()
@@ -49,20 +52,17 @@ func rand_question():
 	return question
 
 func show_answer():
-	var answer_label
+	$Timer.stop()
+	_clear_colors()
+	var answer_node
 	if answer == "1":
-		answer_label = $Antwort1
-		$DMXControl.call_answer_1()
+		answer_node = $Antwort1
 	if answer == "2":
-		answer_label = $Antwort2
-		$DMXControl.call_answer_2()
+		answer_node = $Antwort2
 	if answer == "3":
-		answer_label = $Antwort3
-		$DMXControl.call_answer_3()
-
-	var new_stylebox_normal = answer_label.get_stylebox("normal").duplicate()
-	new_stylebox_normal.set_bg_color(Color("65d139"))
-	answer_label.add_stylebox_override("normal", new_stylebox_normal)
+		answer_node = $Antwort3
+	$DMXControl.call_alarm()
+	answer_node.set_highlight(true)
 
 func _on_Button_pressed():
 	get_node("../").get_tree().quit()
@@ -76,3 +76,19 @@ func _on_Button2_pressed():
 	else:
 		new_round()
 		state = State.Question
+
+func _on_timer():
+	_clear_colors()
+	var answer_index = previous_highlighted_answer
+	while answer_index == previous_highlighted_answer:
+		answer_index = randi() % 3
+	_get_answer_by_index(answer_index).set_highlight(true)
+	previous_highlighted_answer = answer_index
+
+func _get_answer_by_index(index):
+	return get_node("Antwort%s" % (index + 1))
+
+func _clear_colors():
+	for i in range(0, 3):
+		_get_answer_by_index(i).set_highlight(false)
+	

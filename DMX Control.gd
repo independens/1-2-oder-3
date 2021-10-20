@@ -7,20 +7,13 @@ func _ready():
 	peer = PacketPeerUDP.new()
 	peer.connect_to_host("127.0.0.1", 7700)
 
-func call_questions():
-	_send_packet("/questions", 255)
+func call_alarm():
+	_send_packet("/alarm", 255)
 
-func _call_blank():
-	_send_packet("/clear", 255)
-
-func call_answer_1():
-	_send_packet("/answer/1", 255)
-
-func call_answer_2():
-	_send_packet("/answer/2", 255)
-
-func call_answer_3():
-	_send_packet("/answer/3", 255)
+func set_color(number: int, color: Color):
+	_send_packet("/field/%s/r" % number, color.r8)
+	_send_packet("/field/%s/g" % number, color.g8)
+	_send_packet("/field/%s/b" % number, color.b8)
 
 func _send_packet(addr: String, value: int):
 	print("Sending packet ", addr, " ", value)
