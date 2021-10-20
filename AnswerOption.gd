@@ -7,6 +7,9 @@ export(Texture) var number_texture
 export var default_color = Color("343434")
 export var number: int = 1
 
+func _ready():
+	$AnimatedSprite.set_frame(8*number)
+	
 func _process(delta):
 	if text == "":
 		$Text.hide()
@@ -15,6 +18,7 @@ func _process(delta):
 	$Text.set_text(text)
 	$Background.set_frame_color(_get_color())
 	$Sprite.set_texture(number_texture)
+	
 
 func set_highlight(value: bool):
 	highlight = value

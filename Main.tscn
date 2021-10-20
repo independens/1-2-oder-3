@@ -104,5 +104,4 @@ number = 3
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.35
-
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_Button2_pressed"]
