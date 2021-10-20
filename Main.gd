@@ -32,7 +32,6 @@ func new_round():
 	$Antwort2.text = question_data[2]
 	$Antwort3.text = question_data[3]
 	answer = question_data[4]
-	print(question_data[0])
 	$Timer.start()
 
 func load_questions():
@@ -40,15 +39,15 @@ func load_questions():
 	f.open(file, File.READ)
 	while !f.eof_reached(): # iterate through all lines until the end of file is reached
 		var question_set = Array(f.get_csv_line())
-		question_list.append(question_set)
+		if question_set.size() == 5:
+			question_list.append(question_set)
 	f.close()
 	print(question_list)
 	return question_list
 
 func rand_question():
-	var rand_i = rand_range(0,question_list.size())
+	var rand_i = randi() % question_list.size()
 	var question = question_list[rand_i]
-	print (question)
 	return question
 
 func show_answer():
@@ -63,9 +62,6 @@ func show_answer():
 		answer_node = $Antwort3
 	$DMXControl.call_alarm()
 	answer_node.set_highlight(true)
-
-func _on_Button_pressed():
-	get_node("../").get_tree().quit()
 
 func _on_Button2_pressed():
 	if state == State.Title:
