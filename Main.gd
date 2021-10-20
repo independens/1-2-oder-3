@@ -1,21 +1,18 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var file = 'res://Questions.csv'
 var question_list = []
 var answer
-onready var style_1 = $Antwort1.get_stylebox("AnswersStyle")
-onready var style_2 = $Antwort2.get_stylebox("AnswersStyle")
-onready var style_3 = $Antwort3.get_stylebox("AnswersStyle")
+onready var default_stylebox = $Antwort1.get_stylebox("normal")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	load_questions()
 
 func new_round():
+	$Antwort1.add_stylebox_override("normal", default_stylebox)
+	$Antwort2.add_stylebox_override("normal", default_stylebox)
+	$Antwort3.add_stylebox_override("normal", default_stylebox)
 	$Richtig1.hide()
 	$Richtig2.hide()
 	$Richtig3.hide()
@@ -45,16 +42,17 @@ func rand_question():
 	return question
 
 func show_answer():
+	var answer_label
 	if answer == "1":
-		style_1.set_bg_color(Color("65d139"))
-		$Richtig1.show()
+		answer_label = $Antwort1
 	if answer == "2":
-		style_2.set_bg_color(Color("65d139"))
-		$Richtig2.show()
+		answer_label = $Antwort2
 	if answer == "3":
-		style_2.set_bg_color(Color("65d139"))
-		$Richtig3.show()
+		answer_label = $Antwort3
 
+	var new_stylebox_normal = answer_label.get_stylebox("normal").duplicate()
+	new_stylebox_normal.set_bg_color(Color("65d139"))
+	answer_label.add_stylebox_override("normal", new_stylebox_normal)
 
 func _on_Button_pressed():
 	get_node("../").get_tree().quit()

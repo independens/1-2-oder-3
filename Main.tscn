@@ -74,17 +74,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Richtig1" type="ColorRect" parent="."]
-visible = false
-margin_left = 161.915
-margin_top = 228.586
-margin_right = 607.915
-margin_bottom = 868.586
-color = Color( 0.396078, 0.819608, 0.223529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Antwort1" type="Label" parent="."]
 margin_left = 197.172
 margin_top = 250.0
@@ -96,16 +85,6 @@ text = "A1"
 align = 1
 valign = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Richtig2" type="ColorRect" parent="."]
-margin_left = 730.204
-margin_top = 228.586
-margin_right = 1176.2
-margin_bottom = 868.586
-color = Color( 0.396078, 0.819608, 0.223529, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,17 +104,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Richtig3" type="ColorRect" parent="."]
-visible = false
-margin_left = 1276.27
-margin_top = 228.586
-margin_right = 1722.27
-margin_bottom = 868.586
-color = Color( 0.396078, 0.819608, 0.223529, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Antwort3" type="Label" parent="."]
 margin_left = 1320.0
 margin_top = 250.0
@@ -150,6 +118,7 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_Button3_pressed"]
