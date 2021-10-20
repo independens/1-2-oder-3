@@ -1,16 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://AnswersStyle.tres" type="StyleBox" id=3]
+[ext_resource path="res://DMX Control.gd" type="Script" id=4]
 
-[sub_resource type="InputEventAction" id=2]
+[sub_resource type="InputEventAction" id=1]
 action = "ui_accept"
 
-[sub_resource type="ShortCut" id=3]
-shortcut = SubResource( 2 )
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_top = 4
 border_width_bottom = 4
@@ -44,7 +45,7 @@ margin_left = -100.0
 margin_top = -100.004
 margin_right = 100.0
 custom_fonts/font = ExtResource( 1 )
-shortcut = SubResource( 3 )
+shortcut = SubResource( 2 )
 text = "Weiter"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -64,7 +65,7 @@ margin_left = -0.213882
 margin_top = 35.3619
 margin_right = 1919.79
 margin_bottom = 131.362
-custom_styles/normal = SubResource( 1 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Frage"
@@ -119,6 +120,9 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DMXControl" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_Button2_pressed"]

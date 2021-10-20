@@ -30,6 +30,7 @@ func new_round():
 	$Antwort3.text = question_data[3]
 	answer = question_data[4]
 	print(question_data[0])
+	$DMXControl.call_questions()
 
 func load_questions():
 	var f = File.new()
@@ -51,10 +52,13 @@ func show_answer():
 	var answer_label
 	if answer == "1":
 		answer_label = $Antwort1
+		$DMXControl.call_answer_1()
 	if answer == "2":
 		answer_label = $Antwort2
+		$DMXControl.call_answer_2()
 	if answer == "3":
 		answer_label = $Antwort3
+		$DMXControl.call_answer_3()
 
 	var new_stylebox_normal = answer_label.get_stylebox("normal").duplicate()
 	new_stylebox_normal.set_bg_color(Color("65d139"))
@@ -62,7 +66,6 @@ func show_answer():
 
 func _on_Button_pressed():
 	get_node("../").get_tree().quit()
-
 
 func _on_Button2_pressed():
 	if state == State.Title:
