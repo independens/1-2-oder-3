@@ -5,14 +5,13 @@
 [ext_resource path="res://AnswersStyle.tres" type="StyleBox" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-border_width_bottom = 174
-border_color = Color( 0.0627451, 0.109804, 0.364706, 1 )
-border_blend = true
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+bg_color = Color( 1, 1, 1, 1 )
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+shadow_color = Color( 0, 0, 0, 0.333333 )
+shadow_size = 1
+shadow_offset = Vector2( 0, 5 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -55,17 +54,19 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
+color = Color( 0.878431, 0.807843, 0.752941, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Question" type="Label" parent="."]
-margin_left = 560.0
-margin_top = 17.0186
-margin_right = 1360.0
-margin_bottom = 229.019
+margin_left = -0.213882
+margin_top = 35.3619
+margin_right = 1919.79
+margin_bottom = 131.362
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Frage"
 align = 1
 valign = 1
