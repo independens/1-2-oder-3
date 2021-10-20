@@ -5,6 +5,7 @@ var question_list = []
 var answer
 var timer
 var previous_highlighted_answer = -1
+var past_questions = []
 
 var state = State.Title
 
@@ -47,7 +48,13 @@ func load_questions():
 
 func rand_question():
 	var rand_i = randi() % question_list.size()
+	if past_questions.size() == question_list.size():
+		# End Game screen?
+		past_questions = []
+	while past_questions.has(rand_i):
+		rand_i = randi() % question_list.size()
 	var question = question_list[rand_i]
+	past_questions.append(rand_i)
 	return question
 
 func show_answer():
