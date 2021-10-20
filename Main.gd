@@ -4,6 +4,15 @@ onready var file = 'res://Questions.csv'
 var question_list = []
 var answer
 onready var default_stylebox = $Antwort1.get_stylebox("normal")
+
+var state = State.Title
+
+enum State {
+	Title,
+	Question,
+	Answer
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -56,8 +65,11 @@ func _on_Button_pressed():
 
 
 func _on_Button2_pressed():
-	new_round()
-
-
-func _on_Button3_pressed():
-	show_answer()
+	if state == State.Title:
+		$Question.show()
+	if state == State.Question:
+		show_answer()
+		state = State.Answer
+	else:
+		new_round()
+		state = State.Question

@@ -1,8 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://AnswersStyle.tres" type="StyleBox" id=3]
+
+[sub_resource type="InputEventAction" id=2]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -30,23 +36,16 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="CanvasLayer"]
-margin_left = 960.0
-margin_top = 976.836
-margin_right = 1160.0
-margin_bottom = 1076.84
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -100.004
+margin_right = 100.0
 custom_fonts/font = ExtResource( 1 )
-text = "NextRound"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="CanvasLayer"]
-margin_left = 723.484
-margin_top = 976.836
-margin_right = 923.484
-margin_bottom = 1076.84
-custom_fonts/font = ExtResource( 1 )
-text = "ShowAnswer"
+shortcut = SubResource( 3 )
+text = "Weiter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,6 +59,7 @@ __meta__ = {
 }
 
 [node name="Question" type="Label" parent="."]
+visible = false
 margin_left = -0.213882
 margin_top = 35.3619
 margin_right = 1919.79
@@ -82,7 +82,7 @@ margin_right = 557.172
 margin_bottom = 850.0
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "A1"
+text = "1"
 align = 1
 valign = 1
 autowrap = true
@@ -97,7 +97,7 @@ margin_right = 1140.0
 margin_bottom = 850.0
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "A2"
+text = "2"
 align = 1
 valign = 1
 autowrap = true
@@ -112,7 +112,7 @@ margin_right = 1680.0
 margin_bottom = 850.0
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
-text = "A3"
+text = "3"
 align = 1
 valign = 1
 autowrap = true
@@ -122,4 +122,3 @@ __meta__ = {
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_Button3_pressed"]
