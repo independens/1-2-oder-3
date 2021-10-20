@@ -22,14 +22,17 @@ shadow_offset = Vector2( 0, 5 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1040.0 ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 9.72083
-margin_top = 987.427
-margin_right = 233.721
-margin_bottom = 1068.43
+margin_left = 56.0
+margin_top = 944.0
+margin_right = 280.0
+margin_bottom = 1044.0
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
 __meta__ = {
@@ -42,8 +45,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -100.0
-margin_top = -100.004
+margin_top = -136.0
 margin_right = 100.0
+margin_bottom = -36.0
 custom_fonts/font = ExtResource( 1 )
 shortcut = SubResource( 2 )
 text = "Weiter"
@@ -56,15 +60,17 @@ margin_right = 1920.0
 margin_bottom = 1080.0
 color = Color( 0.878431, 0.807843, 0.752941, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Question" type="Label" parent="."]
-visible = false
-margin_left = -0.213882
-margin_top = 35.3619
-margin_right = 1919.79
-margin_bottom = 131.362
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 640.0
+margin_top = 50.0
+margin_right = 1280.0
+margin_bottom = 192.0
 custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
