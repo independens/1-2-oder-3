@@ -1,0 +1,19 @@
+[gd_resource type="StyleBoxFlat" format=2]
+
+[resource]
+resource_name = "AnswersStyle"
+bg_color = Color( 0.188235, 0.278431, 0.615686, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+shadow_size = 9
+shadow_offset = Vector2( 10, 15 )
+anti_aliasing_size = 2

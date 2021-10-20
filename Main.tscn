@@ -1,0 +1,155 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://AnswersStyle.tres" type="StyleBox" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 174
+border_color = Color( 0.0627451, 0.109804, 0.364706, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 9.72083
+margin_top = 987.427
+margin_right = 233.721
+margin_bottom = 1068.43
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+margin_left = 960.0
+margin_top = 976.836
+margin_right = 1160.0
+margin_bottom = 1076.84
+custom_fonts/font = ExtResource( 1 )
+text = "NextRound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+margin_left = 723.484
+margin_top = 976.836
+margin_right = 923.484
+margin_bottom = 1076.84
+custom_fonts/font = ExtResource( 1 )
+text = "ShowAnswer"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="Label" parent="."]
+margin_left = 560.0
+margin_top = 17.0186
+margin_right = 1360.0
+margin_bottom = 229.019
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Frage"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Richtig1" type="ColorRect" parent="."]
+visible = false
+margin_left = 161.915
+margin_top = 228.586
+margin_right = 607.915
+margin_bottom = 868.586
+color = Color( 0.396078, 0.819608, 0.223529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antwort1" type="Label" parent="."]
+margin_left = 197.172
+margin_top = 250.0
+margin_right = 557.172
+margin_bottom = 850.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "A1"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Richtig2" type="ColorRect" parent="."]
+margin_left = 730.204
+margin_top = 228.586
+margin_right = 1176.2
+margin_bottom = 868.586
+color = Color( 0.396078, 0.819608, 0.223529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antwort2" type="Label" parent="."]
+margin_left = 780.0
+margin_top = 250.0
+margin_right = 1140.0
+margin_bottom = 850.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "A2"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Richtig3" type="ColorRect" parent="."]
+visible = false
+margin_left = 1276.27
+margin_top = 228.586
+margin_right = 1722.27
+margin_bottom = 868.586
+color = Color( 0.396078, 0.819608, 0.223529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Antwort3" type="Label" parent="."]
+margin_left = 1320.0
+margin_top = 250.0
+margin_right = 1680.0
+margin_bottom = 850.0
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "A3"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button3" to="." method="_on_Button3_pressed"]
