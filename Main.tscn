@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://Button.tres" type="StyleBox" id=3]
 [ext_resource path="res://DMX Control.gd" type="Script" id=4]
 [ext_resource path="res://Numbers/1.png" type="Texture" id=5]
 [ext_resource path="res://AnswerOption.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Numbers/3.png" type="Texture" id=7]
 [ext_resource path="res://Numbers/2.png" type="Texture" id=8]
+[ext_resource path="res://ButtonActive.tres" type="StyleBox" id=9]
 
 [sub_resource type="InputEventAction" id=1]
 action = "ui_accept"
@@ -31,29 +33,21 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ExitButton" type="Button" parent="CanvasLayer"]
-margin_left = 56.0
-margin_top = 944.0
-margin_right = 280.0
-margin_bottom = 1044.0
-custom_fonts/font = ExtResource( 1 )
-text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PlayButton" type="Button" parent="CanvasLayer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -136.0
-margin_right = 100.0
-margin_bottom = -36.0
+margin_left = -250.0
+margin_top = -140.0
+margin_right = 250.0
+margin_bottom = -40.0
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 shortcut = SubResource( 2 )
-text = "Weiter"
+text = "Go!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,5 +105,4 @@ number = 3
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.35
 
-[connection signal="pressed" from="CanvasLayer/ExitButton" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_Button2_pressed"]
