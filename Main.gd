@@ -13,9 +13,6 @@ func new_round():
 	$Antwort1.add_stylebox_override("normal", default_stylebox)
 	$Antwort2.add_stylebox_override("normal", default_stylebox)
 	$Antwort3.add_stylebox_override("normal", default_stylebox)
-	$Richtig1.hide()
-	$Richtig2.hide()
-	$Richtig3.hide()
 	var question_data = rand_question()
 	var q_text = question_data[0]
 	$Question.text = q_text
