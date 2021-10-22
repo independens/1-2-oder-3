@@ -56,9 +56,9 @@ scale = Vector2( 0.33287, 0.33287 )
 texture = ExtResource( 4 )
 
 [node name="Text" type="Label" parent="."]
-margin_top = 493.0
+margin_top = 456.0
 margin_right = 360.0
-margin_bottom = 573.0
+margin_bottom = 536.0
 size_flags_horizontal = 5
 size_flags_vertical = 14
 custom_styles/normal = ExtResource( 3 )
@@ -76,5 +76,5 @@ __meta__ = {
 position = Vector2( 176, 300 )
 scale = Vector2( 0.636943, 0.706652 )
 frames = SubResource( 1 )
-frame = 13
+frame = 19
 playing = true
