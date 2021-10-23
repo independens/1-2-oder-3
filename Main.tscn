@@ -87,23 +87,22 @@ script = ExtResource( 4 )
 position = Vector2( 210, 250 )
 highlight_color = Color( 1, 0, 0, 1 )
 number_texture = ExtResource( 5 )
-default_color = Color( 0.3, 0, 0, 1 )
+default_color = Color( 0.6, 0, 0, 1 )
 
 [node name="Antwort2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 780, 250 )
 highlight_color = Color( 1, 1, 0, 1 )
 number_texture = ExtResource( 8 )
-default_color = Color( 0.3, 0.252, 0.06, 1 )
+default_color = Color( 0.84, 0.7056, 0.168, 1 )
 number = 2
 
 [node name="Antwort3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1350, 250 )
 highlight_color = Color( 0, 0, 1, 1 )
 number_texture = ExtResource( 7 )
-default_color = Color( 0.03, 0.03, 0.3, 1 )
+default_color = Color( 0.05, 0.05, 0.5, 1 )
 number = 3
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.35
-
 [connection signal="pressed" from="CanvasLayer/PlayButton" to="." method="_on_Button2_pressed"]
