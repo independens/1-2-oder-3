@@ -3,6 +3,7 @@ extends Node2D
 export var text: String = ""
 export var highlight: bool = false
 export var highlight_color = Color("65d139")
+export var animate: bool = false
 export(Texture) var number_texture
 export var default_color = Color("343434")
 export var number: int = 1
@@ -18,6 +19,10 @@ func _process(delta):
 	$Text.set_text(text)
 	$Background.set_frame_color(_get_color())
 	$Sprite.set_texture(number_texture)
+	if animate:
+		$AnimatedSprite.animation = "default"
+	else:
+		$AnimatedSprite.animation = "off"
 	
 
 func set_highlight(value: bool):

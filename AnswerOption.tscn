@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://AnswerOption.gd" type="Script" id=1]
 [ext_resource path="res://font.tres" type="DynamicFont" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://looplights/looplights_00013.png" type="Texture" id=27]
 [ext_resource path="res://looplights/looplights_00014.png" type="Texture" id=28]
 [ext_resource path="res://looplights/looplights_00035.png" type="Texture" id=29]
+[ext_resource path="res://looplights/looplights_off.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -36,6 +37,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 25.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
 } ]
 
 [node name="AnswerOption" type="Node2D"]
@@ -76,5 +82,5 @@ __meta__ = {
 position = Vector2( 176, 300 )
 scale = Vector2( 0.636943, 0.706652 )
 frames = SubResource( 1 )
-frame = 19
+animation = "off"
 playing = true

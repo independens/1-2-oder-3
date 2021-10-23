@@ -23,9 +23,8 @@ func _ready():
 	$Question.hide()
 
 func new_round():
-	$Antwort1.highlight = false
-	$Antwort2.highlight = false
-	$Antwort3.highlight = false
+	_clear_colors()
+	_set_animations(true)
 	var question_data = rand_question()
 	var q_text = question_data[0]
 	$Question.text = q_text
@@ -60,6 +59,7 @@ func rand_question():
 func show_answer():
 	$Timer.stop()
 	_clear_colors()
+	_set_animations(false)
 	var answer_node
 	if answer == "1":
 		answer_node = $Antwort1
@@ -69,6 +69,7 @@ func show_answer():
 		answer_node = $Antwort3
 	$DMXControl.call_alarm()
 	answer_node.set_highlight(true)
+	answer_node.animate = true
 
 func _on_Button2_pressed():
 	if state == State.Title:
@@ -94,4 +95,8 @@ func _get_answer_by_index(index):
 func _clear_colors():
 	for i in range(0, 3):
 		_get_answer_by_index(i).set_highlight(false)
-	
+
+func _set_animations(animate: bool):
+	for i in range(0, 3):
+		_get_answer_by_index(i).animate = animate
+
